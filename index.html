@@ -1,0 +1,1199 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080508">
+<title>DEME × NINI — Our Story</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080508;
+  --wine:#3b101f;
+  --wine2:#681b35;
+  --wine3:#8d2947;
+  --gold:#d9bb83;
+  --gold-light:#f1dbad;
+  --cream:#f5eae5;
+  --muted:#ad9ca3;
+  --line:rgba(217,187,131,.23);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+  scrollbar-width:thin;
+  scrollbar-color:#713047 #080508;
+}
+
+body {
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Noto Sans Georgian',sans-serif;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  background:
+    radial-gradient(ellipse at 50% 5%,rgba(110,27,55,.24),transparent 48%),
+    radial-gradient(ellipse at 0% 55%,rgba(80,18,40,.15),transparent 40%),
+    radial-gradient(ellipse at 100% 90%,rgba(91,23,43,.17),transparent 45%),
+    #080508;
+}
+
+body::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:30;
+  pointer-events:none;
+  opacity:.09;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+}
+
+button {font:inherit}
+
+.serif {font-family:'Cormorant Garamond',serif}
+.gold {color:var(--gold)}
+
+::selection {
+  background:var(--wine2);
+  color:white;
+}
+
+/* PROGRESS */
+
+.progress {
+  position:fixed;
+  top:0;
+  left:0;
+  height:2px;
+  width:0%;
+  background:linear-gradient(90deg,var(--wine3),var(--gold-light));
+  z-index:150;
+  box-shadow:0 0 12px rgba(217,187,131,.4);
+}
+
+/* AMBIENT BACKGROUND */
+
+.ambient {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.ambient-glow {
+  position:absolute;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:rgba(110,26,52,.11);
+  filter:blur(85px);
+  animation:ambientMove 17s ease-in-out infinite alternate;
+}
+
+.glow-one {top:10%;left:-250px}
+.glow-two {bottom:-200px;right:-220px;animation-delay:-7s}
+
+@keyframes ambientMove {
+  from {transform:translate(0,0) scale(.9)}
+  to {transform:translate(100px,-50px) scale(1.2)}
+}
+
+/* INTRO */
+
+.intro {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  background:
+    radial-gradient(ellipse at center,rgba(104,24,49,.28),transparent 65%),
+    #080508;
+  transition:opacity 1.4s ease,visibility 1.4s;
+}
+
+.intro::before {
+  content:"";
+  position:absolute;
+  inset:15px;
+  border:1px solid rgba(217,187,131,.13);
+  pointer-events:none;
+}
+
+.intro::after {
+  content:"";
+  position:absolute;
+  width:min(75vw,520px);
+  height:min(75vw,520px);
+  border:1px solid rgba(217,187,131,.08);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.intro.hide {
+  opacity:0;
+  visibility:hidden;
+}
+
+.intro-content {
+  position:relative;
+  z-index:2;
+  max-width:600px;
+  animation:appear 1.8s ease both;
+}
+
+.intro-small {
+  color:var(--gold);
+  letter-spacing:6px;
+  font-size:10px;
+  margin-bottom:37px;
+}
+
+.intro h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(58px,12vw,112px);
+  font-weight:300;
+  line-height:.94;
+  letter-spacing:5px;
+}
+
+.intro h1 span {
+  color:var(--gold);
+  font-style:italic;
+}
+
+.intro-line {
+  width:85px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:35px auto;
+}
+
+.intro p {
+  color:#c3b2b8;
+  font-size:13px;
+  line-height:2.3;
+  margin-bottom:38px;
+}
+
+.enter-btn {
+  position:relative;
+  border:1px solid rgba(217,187,131,.6);
+  background:linear-gradient(120deg,rgba(80,20,40,.25),rgba(20,10,15,.5));
+  color:var(--gold-light);
+  padding:17px 38px;
+  letter-spacing:3px;
+  font-size:11px;
+  cursor:pointer;
+  transition:.5s;
+  overflow:hidden;
+}
+
+.enter-btn::before {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  transform:skewX(-20deg);
+  transition:.7s;
+}
+
+.enter-btn:hover::before {left:150%}
+
+.enter-btn:hover {
+  background:var(--gold);
+  color:#14090e;
+  box-shadow:0 0 35px rgba(217,187,131,.17);
+}
+
+/* NAV */
+
+nav {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:29px 7%;
+  z-index:5;
+}
+
+.logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  letter-spacing:3px;
+  font-weight:400;
+}
+
+.logo span {color:var(--gold)}
+
+.nav-label {
+  color:var(--gold);
+  letter-spacing:3px;
+  font-size:9px;
+  opacity:.85;
+}
+
+/* MAIN */
+
+main {
+  opacity:0;
+  transition:opacity 1.7s ease;
+}
+
+main.visible {opacity:1}
+
+/* HERO */
+
+.hero {
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:125px 20px 100px;
+  overflow:hidden;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  width:min(750px,100vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  border:1px solid rgba(217,187,131,.07);
+  box-shadow:
+    0 0 0 45px rgba(217,187,131,.012),
+    0 0 0 90px rgba(217,187,131,.009);
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  width:min(500px,85vw);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(120,25,54,.23),transparent 70%);
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  animation:heroEnter 2s ease both;
+}
+
+.eyebrow {
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:5px;
+  margin-bottom:43px;
+}
+
+.hero h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(70px,13vw,150px);
+  font-weight:300;
+  line-height:.83;
+  letter-spacing:2px;
+  text-shadow:0 10px 55px rgba(0,0,0,.4);
+}
+
+.hero h1 .amp {
+  display:block;
+  color:var(--gold);
+  font-size:.44em;
+  margin:24px 0;
+  font-style:italic;
+  font-weight:300;
+}
+
+.hero-subtitle {
+  font-size:clamp(13px,2vw,16px);
+  color:#c4b3b9;
+  line-height:2.5;
+  margin-top:48px;
+  font-weight:300;
+}
+
+.hero-date {
+  margin:48px auto 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;
+  letter-spacing:7px;
+  color:var(--gold);
+}
+
+.hero-date::before,
+.hero-date::after {
+  content:"✧";
+  color:var(--gold);
+  font-size:12px;
+  margin:0 17px;
+}
+
+.scroll-indicator {
+  position:absolute;
+  bottom:34px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:13px;
+  color:#99858e;
+  font-size:9px;
+  letter-spacing:3px;
+  white-space:nowrap;
+}
+
+.scroll-indicator::after {
+  content:"";
+  width:1px;
+  height:43px;
+  background:linear-gradient(var(--gold),transparent);
+  animation:scrollLine 2s infinite;
+}
+
+/* SECTIONS */
+
+section {
+  padding:135px 22px;
+  position:relative;
+}
+
+.section-inner {
+  width:min(920px,100%);
+  margin:auto;
+  text-align:center;
+}
+
+.section-number {
+  color:var(--gold);
+  letter-spacing:5px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;
+  margin-bottom:26px;
+}
+
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,7vw,75px);
+  font-weight:300;
+  line-height:1.15;
+}
+
+.section-desc {
+  color:var(--muted);
+  font-size:13px;
+  line-height:2.5;
+  margin:29px auto 0;
+  max-width:600px;
+  font-weight:300;
+}
+
+.section-decoration {
+  width:100px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:35px auto 0;
+}
+
+/* LETTER */
+
+.letter-section {
+  background:
+    radial-gradient(ellipse at center,rgba(78,18,39,.18),transparent 70%);
+}
+
+.letter {
+  max-width:750px;
+  margin:70px auto 0;
+  padding:clamp(35px,7vw,75px);
+  text-align:left;
+  border:1px solid rgba(217,187,131,.27);
+  background:
+    linear-gradient(145deg,rgba(83,22,43,.24),rgba(15,8,12,.93));
+  position:relative;
+  box-shadow:
+    0 30px 100px rgba(0,0,0,.3),
+    inset 0 0 65px rgba(90,22,43,.09);
+}
+
+.letter::before {
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(217,187,131,.09);
+  pointer-events:none;
+}
+
+.letter::after {
+  content:"✧";
+  position:absolute;
+  top:-19px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#130910;
+  color:var(--gold);
+  padding:0 17px;
+  font-size:22px;
+}
+
+.letter-top {
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;
+  letter-spacing:2px;
+  margin-bottom:35px;
+}
+
+.letter p {
+  color:#d4c5ca;
+  font-size:14px;
+  font-weight:300;
+  line-height:2.6;
+  margin-bottom:21px;
+  position:relative;
+  z-index:1;
+}
+
+.letter .signature {
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;
+  margin-top:42px;
+  border-top:1px solid rgba(217,187,131,.17);
+  padding-top:25px;
+}
+
+/* COUNTER */
+
+.counter-section {
+  background:
+    radial-gradient(ellipse at center,rgba(105,26,51,.17),transparent 68%);
+}
+
+.counter-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:17px;
+  margin-top:75px;
+}
+
+.counter-item {
+  padding:35px 10px;
+  border:1px solid rgba(217,187,131,.19);
+  background:linear-gradient(145deg,rgba(83,24,43,.16),rgba(15,8,12,.4));
+  transition:transform .4s,border-color .4s,background .4s;
+}
+
+.counter-item:hover {
+  transform:translateY(-7px);
+  border-color:rgba(217,187,131,.55);
+  background:rgba(81,22,43,.24);
+}
+
+.counter-item strong {
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,7vw,72px);
+  font-weight:300;
+  color:var(--gold-light);
+  font-variant-numeric:tabular-nums;
+}
+
+.counter-item span {
+  display:block;
+  color:#ad9aa2;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-top:12px;
+}
+
+/* SPECIAL */
+
+.special {
+  padding:160px 22px;
+  text-align:center;
+  overflow:hidden;
+}
+
+.special::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:min(700px,100vw);
+  height:500px;
+  background:radial-gradient(ellipse,rgba(100,22,49,.19),transparent 70%);
+  pointer-events:none;
+}
+
+.special-symbol {
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold);
+  font-size:53px;
+  margin-bottom:37px;
+}
+
+.special h2 {
+  position:relative;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(48px,9vw,100px);
+  font-weight:300;
+  line-height:1.08;
+}
+
+.special h2 span {
+  display:block;
+  color:var(--gold);
+  font-style:italic;
+  margin-top:8px;
+}
+
+.special p {
+  position:relative;
+  color:#b5a4ab;
+  font-size:13px;
+  line-height:2.6;
+  margin:40px auto 0;
+  max-width:530px;
+}
+
+/* FINAL */
+
+.final-section {
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 22px;
+  background:
+    radial-gradient(ellipse at center,rgba(100,22,48,.23),transparent 65%);
+}
+
+.final-inner {
+  max-width:850px;
+  position:relative;
+}
+
+.final-inner::before {
+  content:"";
+  position:absolute;
+  inset:-60px -40px;
+  border:1px solid rgba(217,187,131,.08);
+  pointer-events:none;
+}
+
+.final-inner .small {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:5px;
+  margin-bottom:43px;
+}
+
+.final-inner h2 {
+  font-family:'Cormorant Garamond',serif;
+  font-weight:300;
+  font-size:clamp(67px,12vw,125px);
+  line-height:.98;
+}
+
+.final-inner h2 span {
+  display:block;
+  color:var(--gold);
+  font-style:italic;
+  margin-top:15px;
+}
+
+.final-inner p {
+  color:#c1b0b7;
+  font-size:13px;
+  line-height:2.5;
+  margin-top:40px;
+}
+
+.final-heart {
+  display:inline-block;
+  color:var(--wine3);
+  font-size:36px;
+  margin-top:47px;
+  animation:heartbeat 2s infinite;
+  filter:drop-shadow(0 0 17px rgba(141,41,71,.45));
+}
+
+.final-inner .gold {
+  letter-spacing:5px;
+  font-size:11px;
+}
+
+/* FOOTER */
+
+footer {
+  text-align:center;
+  padding:40px 15px;
+  border-top:1px solid rgba(217,187,131,.12);
+  background:rgba(0,0,0,.12);
+}
+
+footer p {
+  color:#897781;
+  font-size:10px;
+  letter-spacing:3px;
+}
+
+footer span {color:var(--gold)}
+
+/* REVEAL */
+
+.reveal {
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.active {
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes appear {
+  from {opacity:0;transform:translateY(30px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+@keyframes heroEnter {
+  from {opacity:0;transform:translateY(35px);filter:blur(5px)}
+  to {opacity:1;transform:translateY(0);filter:blur(0)}
+}
+
+@keyframes heartbeat {
+  0%,100% {transform:scale(1)}
+  50% {transform:scale(1.2)}
+}
+
+@keyframes scrollLine {
+  0% {transform:scaleY(0);transform-origin:top}
+  50% {transform:scaleY(1);transform-origin:top}
+  100% {transform:scaleY(0);transform-origin:bottom}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px) {
+  nav {
+    padding:23px 20px;
+  }
+
+  .logo {font-size:20px}
+  .nav-label {font-size:8px;letter-spacing:2px}
+
+  .hero {
+    padding:110px 18px 95px;
+    min-height:100svh;
+  }
+
+  .hero h1 {
+    font-size:clamp(65px,16vw,105px);
+  }
+
+  .eyebrow {
+    font-size:9px;
+    letter-spacing:3px;
+  }
+
+  .hero-subtitle {
+    font-size:13px;
+    line-height:2.3;
+    margin-top:35px;
+  }
+
+  .hero-date {
+    font-size:18px;
+    letter-spacing:4px;
+  }
+
+  section {padding:100px 19px}
+
+  .section-title {font-size:clamp(42px,10vw,62px)}
+
+  .section-desc {
+    font-size:12px;
+    line-height:2.4;
+  }
+
+  .letter {
+    padding:42px 25px;
+    margin-top:55px;
+  }
+
+  .letter p {
+    font-size:12px;
+    line-height:2.5;
+  }
+
+  .letter .signature {font-size:29px}
+
+  .counter-grid {
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+    margin-top:55px;
+  }
+
+  .counter-item {padding:27px 8px}
+  .counter-item strong {font-size:53px}
+  .counter-item span {font-size:9px}
+
+  .special {padding:115px 18px}
+
+  .special p {
+    font-size:12px;
+    line-height:2.4;
+  }
+
+  .final-section {
+    min-height:75vh;
+    padding:100px 22px;
+  }
+
+  .final-inner::before {
+    inset:-30px -8px;
+  }
+
+  .final-inner .small {
+    font-size:9px;
+    letter-spacing:3px;
+  }
+
+  .final-inner p {
+    font-size:12px;
+  }
+
+  footer p {
+    font-size:9px;
+    letter-spacing:2px;
+  }
+}
+
+@media(max-width:380px) {
+  .hero h1 {font-size:61px}
+  .hero-date {font-size:15px}
+  .counter-item strong {font-size:44px}
+  .intro h1 {font-size:59px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+
+  .reveal {
+    opacity:1;
+    transform:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="ambient">
+  <div class="ambient-glow glow-one"></div>
+  <div class="ambient-glow glow-two"></div>
+</div>
+
+<!-- INTRO -->
+
+<div class="intro" id="intro">
+  <div class="intro-content">
+    <div class="intro-small">A SPECIAL STORY · 2026</div>
+
+    <h1>DEME <span>×</span><br>NINI</h1>
+
+    <div class="intro-line"></div>
+
+    <p>
+      ერთი განსაკუთრებული ისტორია.<br>
+      ერთი განსაკუთრებული ადამიანი.<br>
+      და სიტყვები, რომელთა თქმაც არასდროს მომბეზრდება.
+    </p>
+
+    <button class="enter-btn" onclick="openStory()">
+      გახსენი ჩვენი ისტორია
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+
+<main id="main">
+
+<nav>
+  <div class="logo">DEME <span>×</span> NINI</div>
+  <div class="nav-label">OUR STORY · 01.01</div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      22 NOVEMBER 2026 · A SPECIAL DAY
+    </div>
+
+    <h1>
+      One Year
+      <span class="amp">&</span>
+      One Month
+    </h1>
+
+    <p class="hero-subtitle">
+      დრო გადის, დღეები იცვლება,<br>
+      მაგრამ არის რაღაც, რაც ჩემთვის ყოველთვის განსაკუთრებული დარჩება...
+    </p>
+
+    <div class="hero-date">DEME × NINI</div>
+
+  </div>
+
+  <div class="scroll-indicator">
+    <span>SCROLL TO DISCOVER</span>
+  </div>
+
+</header>
+
+<!-- SECTION 01 -->
+
+<section>
+  <div class="section-inner reveal">
+
+    <div class="section-number">01 — THE MEANING</div>
+
+    <h2 class="section-title">
+      იცი, რა არის <span class="gold">განსაკუთრებული?</span>
+    </h2>
+
+    <p class="section-desc">
+      განსაკუთრებული ყოველთვის დიდი მოვლენები არ არის.
+      ზოგჯერ ეს უბრალოდ ერთი ადამიანია,
+      რომლის არსებობაც შენს სამყაროს სხვანაირს ხდის.
+      ჩემთვის ეს ადამიანი შენ ხარ, ნინი.
+    </p>
+
+    <div class="section-decoration"></div>
+
+  </div>
+</section>
+
+<!-- LETTER -->
+
+<section class="letter-section">
+
+  <div class="section-inner reveal">
+
+    <div class="section-number">02 — A LETTER FROM DEME</div>
+
+    <h2 class="section-title">
+      რამდენიმე სიტყვა <span class="gold">შენთვის</span>
+    </h2>
+
+    <div class="letter">
+
+      <div class="letter-top">ჩემო ნინი,</div>
+
+      <p>
+        დღეს 1 წელი და 1 თვე შესრულდა მას შემდეგ,
+        რაც ერთმანეთი გავიცანით.
+      </p>
+
+      <p>
+        შეიძლება სიტყვებით ბოლომდე ვერასდროს გადმოვცე,
+        რამდენს ნიშნავ ჩემთვის, მაგრამ მინდა იცოდე,
+        რომ ძალიან მიყვარხარ.
+      </p>
+
+      <p>
+        შენ ჩემთვის უბრალოდ საყვარელი ადამიანი არ ხარ.
+        შენ ხარ ადამიანი, რომელსაც განსაკუთრებული ადგილი
+        უჭირავს ჩემს გულში.
+      </p>
+
+      <p>
+        მინდა იცოდე, რომ შენში ძალიან ბევრი რამ მიყვარს.
+        შენი ხასიათი, შენი არსებობა, შენი თითოეული
+        განსაკუთრებული მხარე.
+      </p>
+
+      <p>
+        ჩემთვის საუკეთესო ადამიანი ხარ, ნინი.
+        არ მინდა ეს დღე უბრალოდ თარიღად დარჩეს.
+        მინდა იცოდე, რამდენად ბედნიერი ვარ,
+        რომ გაგიცანი.
+      </p>
+
+      <p>
+        მადლობა, რომ ჩემი ცხოვრების ამ ისტორიის
+        ნაწილი ხარ. მინდა წინ კიდევ უამრავი
+        ლამაზი მოგონება გვქონდეს.
+      </p>
+
+      <p>
+        და რაც არ უნდა მოხდეს, არასდროს დაივიწყო:
+        შენ ჩემთვის ძალიან, ძალიან ძვირფასი ხარ.
+      </p>
+
+      <div class="signature">სამუდამოდ შენი დემე.</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COUNTER -->
+
+<section class="counter-section">
+
+  <div class="section-inner reveal">
+
+    <div class="section-number">03 — EVERY MOMENT COUNTS</div>
+
+    <h2 class="section-title">
+      დრო, რომელიც <span class="gold">გვაკავშირებს</span>
+    </h2>
+
+    <p class="section-desc">
+      22 ოქტომბერი, 2025 — დღე, საიდანაც ჩვენი გაცნობის ისტორია დაიწყო.
+      და დღეს უკვე 1 წელი და 1 თვეა გასული.
+    </p>
+
+    <div class="counter-grid">
+
+      <div class="counter-item">
+        <strong id="days">000</strong>
+        <span>დღე</span>
+      </div>
+
+      <div class="counter-item">
+        <strong id="hours">00</strong>
+        <span>საათი</span>
+      </div>
+
+      <div class="counter-item">
+        <strong id="minutes">00</strong>
+        <span>წუთი</span>
+      </div>
+
+      <div class="counter-item">
+        <strong id="seconds">00</strong>
+        <span>წამი</span>
+      </div>
+
+    </div>
+
+    <div class="section-decoration"></div>
+
+  </div>
+
+</section>
+
+<!-- SPECIAL -->
+
+<section class="special">
+
+  <div class="section-inner reveal">
+
+    <div class="special-symbol">✧</div>
+
+    <h2>
+      შენ ხარ ჩემი
+      <span>საუკეთესო ადამიანი.</span>
+    </h2>
+
+    <p>
+      არ მჭირდება განსაკუთრებული მიზეზი,
+      რომ გითხრა, რამდენად მიყვარხარ.
+      უბრალოდ მინდა ეს იცოდე — დღეს, ხვალ
+      და ყველა იმ დღეს, რომელიც წინ გველოდება.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final-section">
+
+  <div class="final-inner reveal">
+
+    <div class="small">
+      22.11.2026 · OUR LITTLE CELEBRATION
+    </div>
+
+    <h2>
+      I LOVE
+      <span>YOU, NINI.</span>
+    </h2>
+
+    <p>
+      1 წელი და 1 თვე ჩვენი გაცნობიდან.<br>
+      უამრავი ემოცია, მოგონება და კიდევ ბევრი ლამაზი დღე წინ.
+      <br><br>
+      ეს ისტორია ჩემთვის ძალიან ძვირფასია.
+    </p>
+
+    <div class="final-heart">♥</div>
+
+    <p class="gold">
+      DEME × NINI
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+  <p>MADE WITH LOVE · <span>DEME</span> × NINI · 2026</p>
+</footer>
+
+</main>
+
+<script>
+
+// INTRO TRANSITION
+
+function openStory() {
+
+  const intro = document.getElementById('intro');
+  const main = document.getElementById('main');
+
+  intro.classList.add('hide');
+
+  setTimeout(() => {
+    main.classList.add('visible');
+  }, 450);
+
+  setTimeout(() => {
+    intro.style.display = 'none';
+  }, 1500);
+
+}
+
+// LIVE COUNTER
+// გაცნობის თარიღი: 22 ოქტომბერი, 2025
+
+function updateCounter() {
+
+  const start = new Date(2025, 9, 22, 0, 0, 0);
+  const now = new Date();
+
+  let diff = Math.max(0, now - start);
+
+  const totalSeconds = Math.floor(diff / 1000);
+
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById('days').textContent =
+    String(days).padStart(3, '0');
+
+  document.getElementById('hours').textContent =
+    String(hours).padStart(2, '0');
+
+  document.getElementById('minutes').textContent =
+    String(minutes).padStart(2, '0');
+
+  document.getElementById('seconds').textContent =
+    String(seconds).padStart(2, '0');
+
+}
+
+updateCounter();
+setInterval(updateCounter, 1000);
+
+// SCROLL REVEAL
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      entry.target.classList.add('active');
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+}, {
+  threshold: 0.12
+});
+
+document.querySelectorAll('.reveal').forEach(element => {
+  observer.observe(element);
+});
+
+// SCROLL PROGRESS
+
+window.addEventListener('scroll', () => {
+
+  const scrollTop = window.scrollY;
+
+  const height =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress = height > 0
+    ? (scrollTop / height) * 100
+    : 0;
+
+  document.getElementById('progress').style.width =
+    progress + '%';
+
+}, { passive:true });
+
+</script>
+
+</body>
+</html>
